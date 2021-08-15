@@ -1,0 +1,42 @@
+<div class="col-md-4 mx-auto">
+    <div class="card text-center">
+        <div class="card-header">
+            <h3>New Vehicle</h3>
+        </div>
+        <div class="card-body">
+            <form action="/vehicles/new-vehicle" method="POST">
+                <div class="form-group">
+                    <input type="text" name="brand" class="form-control" placeholder="Brand" autofocus>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="model" class="form-control" placeholder="Model">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="color" class="form-control" placeholder="Color">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="price" class="form-control" placeholder="Price">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="url" class="form-control" placeholder="IMG URL">
+                </div>
+
+                <div class="form-group">
+                    <input type="textarea" name="description" class="form-control" placeholder="Description">
+                </div>
+                
+
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">
+                        Save
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
