@@ -42,11 +42,14 @@ adminController.renderSigninForm = (req,res) =>{
 
 adminController.signin = passport.authenticate('local',{
     failureRedirect: '/admins/signin',
-    successRedirect: '/vehicles'
+    successRedirect: '/vehicles',
+    failureFlash: true
 });
 
-adminController.logout = (req,res) =>{
-    res.send('logout');
+adminController.logout = (req,res) => {
+    req.logout();
+    req.flash('success_msg','You logged out.');
+    res.redirect('/admins/signin');
 };
 
 module.exports = adminController;

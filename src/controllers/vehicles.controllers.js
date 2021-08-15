@@ -24,6 +24,11 @@ vehicleController.renderCatalogue = async (req, res) => {
     res.render('vehicles/Catalogue', {vehicles});
 };
 
+vehicleController.renderMore = async (req,res) => {
+    const vehicle = await Vehicle.findById(req.params.id);
+    res.render('vehicles/more',{vehicle});
+}
+
 vehicleController.renderEditForm = async (req, res) => {
     const vehicle = await Vehicle.findById(req.params.id);
     res.render('vehicles/editVehicle',{layout:'adminMain', vehicle});

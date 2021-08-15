@@ -18,8 +18,9 @@
           <li class="list-group-item">Color: {{color}}</li>
           <li class="list-group-item">Price: {{price}}</li>
         </ul>
-        <form action="" method="">
-            <button type="submit" class="btn btn-info btn-block btn-sm">More</button>
+
+        <form action="/Catalogue/vehicle/{{_id}}" method="GET">
+          <button type="submit" class="btn btn-danger btn-block btn-sm">More</button>
         </form>
       </div>
     </div>

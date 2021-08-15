@@ -9,31 +9,6 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 
-/*const nodemailer = require('nodemailer');
-const transporter = nodemailer.createTransport({
-    service:'Gmail',
-    auth:{
-        user:'testulacit@gmail.com',
-        pass: 'ulacit123'
-    }
-});
-
-const options = {
-    from: 'testulacit@gmail.com',
-    to: 'jmjaimesmendoza@gmail.com',
-    subject: 'TESTING WITH NODE',
-    text: 'TEST BODY'
-}
-
-transporter.sendMail(options, function(error,info){
-    if(err){
-        console.log(err);
-        return;
-    }else{
-        console.log("SENT:"+info.response);
-    }
-});*/
-
 // Initializations
 const app = express();
 require('./config/passport');
@@ -59,14 +34,16 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+
 // Global Variables
 app.use((req,res,next) =>{
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
     next();
 });
 
@@ -80,6 +57,3 @@ app.use(require('./routes/admin.routes'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
-
-
-
