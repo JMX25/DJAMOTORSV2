@@ -1,0 +1,36 @@
+
+<div class="row col-md-4 mx-auto">
+    <form id="custom-validate-form" action="/Contact/mail" method="POST" class="text-center needs-validation" style="width: 100%; max-width: 300px" novalidate="">
+        <h2>Contact us</h2>
+
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+        <input type="text" id="custom-validation-name" name="name" class="form-control">
+        <label class="form-label" for="custom-validation-name" style="margin-left: 0px;">Name</label>
+        <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 42.4px;"></div><div class="form-notch-trailing"></div></div></div>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+        <input type="email" id="custom-validation-email" name="email" class="form-control">
+        <label class="form-label" for="custom-validation-email" style="margin-left: 0px;">Email address</label>
+        <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88.8px;"></div><div class="form-notch-trailing"></div></div></div>
+
+        <!-- Subject input -->
+        <div class="form-outline mb-4">
+        <input type="text" id="custom-validation-subject" name="subject" class="form-control">
+        <label class="form-label" for="custom-validation-subject" style="margin-left: 0px;">Subject</label>
+        <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 50.4px;"></div><div class="form-notch-trailing"></div></div></div>
+
+        <!-- Message input -->
+        <div class="form-outline mb-4">
+        <textarea class="form-control" id="custom-validation-message" name="body" rows="4"></textarea>
+        <label class="form-label" for="custom-validation-message" style="margin-left: 0px;">Message</label>
+        <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 60px;"></div><div class="form-notch-trailing"></div></div></div>
+
+        <!-- Submit button -->
+        <button id="custom-validation-button" class="btn btn-primary btn-block mb-4">Send</button>
+
+        <!-- Status message -->
+        <div id="status"></div>
+    </form>
+</div>

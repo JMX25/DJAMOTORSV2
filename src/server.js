@@ -9,6 +9,31 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 
+/*const nodemailer = require('nodemailer');
+const transporter = nodemailer.createTransport({
+    service:'Gmail',
+    auth:{
+        user:'testulacit@gmail.com',
+        pass: 'ulacit123'
+    }
+});
+
+const options = {
+    from: 'testulacit@gmail.com',
+    to: 'jmjaimesmendoza@gmail.com',
+    subject: 'TESTING WITH NODE',
+    text: 'TEST BODY'
+}
+
+transporter.sendMail(options, function(error,info){
+    if(err){
+        console.log(err);
+        return;
+    }else{
+        console.log("SENT:"+info.response);
+    }
+});*/
+
 // Initializations
 const app = express();
 require('./config/passport');
