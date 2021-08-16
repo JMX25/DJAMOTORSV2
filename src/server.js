@@ -35,6 +35,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -52,6 +53,7 @@ app.use((req,res,next) =>{
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/vehicles.routes'));
 app.use(require('./routes/admin.routes'));
+app.use(require('./routes/note.routes'));
 
 
 // Static Files
