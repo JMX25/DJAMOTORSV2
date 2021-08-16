@@ -31,7 +31,7 @@ adminController.signup = async (req,res) => {
            newAdmin.password = await newAdmin.encryptPassword(password);
            await newAdmin.save();
            req.flash('success_msg','Registered Succesfully!')
-           res.redirect('/admins/signin');
+           res.redirect('/admins');
         }
     }
 };

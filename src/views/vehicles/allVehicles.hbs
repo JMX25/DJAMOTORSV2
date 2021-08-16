@@ -1,6 +1,6 @@
 <div class="row">
     {{#each vehicles}}
-    <div class="col-md-3">
+    <div class="col-md-3 mb-5">
         <div class="card">
             <div class="card-body">
             <img style="height:150px;" class="card-img-top" src="{{url}}" alt="Card image cap"/>
@@ -10,7 +10,6 @@
                 <p>{{brand}}</p>
                 <p>{{color}}</p>
                 <p>{{price}}</p>
-                <p>{{description}}</p>
                 <p>{{vcc}}</p>
                 <p>{{capacity}}</p>
                 <form action="/vehicles/delete/{{_id}}?_method=DELETE" method="POST">
