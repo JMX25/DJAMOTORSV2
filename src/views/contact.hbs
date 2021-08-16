@@ -5,13 +5,13 @@
 
         <!-- Name input -->
         <div class="form-outline mb-4">
-        <input type="text" id="custom-validation-name" name="name" class="form-control">
+        <input type="text" id="custom-validation-name" name="name" class="form-control" required>
         <label class="form-label" for="custom-validation-name" style="margin-left: 0px;">Name</label>
         <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 42.4px;"></div><div class="form-notch-trailing"></div></div></div>
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-        <input type="email" id="custom-validation-email" name="email" class="form-control">
+        <input type="email" id="custom-validation-email" name="email" class="form-control" required>
         <label class="form-label" for="custom-validation-email" style="margin-left: 0px;">Email address</label>
         <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88.8px;"></div><div class="form-notch-trailing"></div></div></div>
 
@@ -19,14 +19,14 @@
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Subject:</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="subject">
-                    <option>Cotizaciones</option>
-                    <option>Servicios</option>
-                    <option>Problemas Tecnicos</option>
+                    <option>Payment Info</option>
+                    <option>Services</option>
+                    <option>Other Issues</option>
                 </select>
             </div>
         <!-- Message input -->
         <div class="form-outline mb-4">
-        <textarea class="form-control" id="custom-validation-message" name="message" rows="4"></textarea>
+        <textarea class="form-control" id="custom-validation-message" name="message" rows="4" required></textarea>
         <label class="form-label" for="custom-validation-message" style="margin-left: 0px;">Message</label>
         <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 60px;"></div><div class="form-notch-trailing"></div></div></div>
 
