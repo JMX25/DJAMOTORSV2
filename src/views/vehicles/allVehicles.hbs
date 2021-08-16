@@ -5,12 +5,14 @@
             <div class="card-body">
             <img style="height:150px;" class="card-img-top" src="{{url}}" alt="Card image cap"/>
                 <h4 class="card-title d-flex justify-content-between align-items-center">
-                    {{brand}} <a href="/vehicles/edit/{{_id}}"><i class="fa fa-pencil"></i></a>
+                    {{model}} <a href="/vehicles/edit/{{_id}}"><i class="fa fa-pencil"></i></a>
                 </h4>
-                <p>{{model}}</p>
+                <p>{{brand}}</p>
                 <p>{{color}}</p>
                 <p>{{price}}</p>
                 <p>{{description}}</p>
+                <p>{{vcc}}</p>
+                <p>{{capacity}}</p>
                 <form action="/vehicles/delete/{{_id}}?_method=DELETE" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger btn-block btn-sm">Delete</button>

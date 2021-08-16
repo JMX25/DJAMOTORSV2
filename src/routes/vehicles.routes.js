@@ -8,7 +8,8 @@ const {
     updateVehicle,
     deleteVehicle,
     renderCatalogue,
-    renderMore
+    renderMore,
+    calc
 } = require('../controllers/vehicles.controllers');
 
 const {isAuthenticated} = require('../helpers/auth');
@@ -27,6 +28,5 @@ router.get('/vehicles', isAuthenticated, renderVehicles);
 
 router.get('/Catalogue',renderCatalogue);
 router.get('/Catalogue/vehicle/:id',renderMore);
-
 
 module.exports = router;

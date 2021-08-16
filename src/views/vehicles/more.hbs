@@ -6,11 +6,77 @@
                 <div class="jumbotron my-jumbotron">
                 <h1 class="display-4">{{vehicle.brand}} {{vehicle.model}}</h1>
                 <p class="lead">{{vehicle.description}}</p>
-                <h5>{{vehicle.price}}</h5>
-                <hr class="my-4" />
-                <a href="#" class="btn btn-primary">PLACEHOLDER</a>
+                <h5>Initial Price: {{vehicle.price}}</h5>
+                <br>
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>Engine Specifications</td>
+                      <td>{{vehicle.vcc}}</td>
+                    </tr>
+                    <tr>
+                      <td>Capacity</td>
+                      <td>{{vehicle.capacity}}</td>
+                    </tr>
+                  </tbody>
+                </table>
                 </div>
             </div>
         </div>
+        <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+    <!-- Accordion card -->
+    <div class="card">
+
+      <!-- Card header -->
+      <div class="card-header bg-dark" role="tab" id="headingOne1">
+        <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+           aria-controls="collapseOne">
+          <h5 class="mb-0 text-warning">
+            <b>Payment Plans</b>
+          </h5>
+        </a>
+      </div>
+
+      <!-- Card body -->
+      <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
+           data-parent="#accordionEx" >
+        
+        <div class="card-body mx-auto">
+            <div class="row">
+                    {{#each results}}
+                    <div class="col-md-4 mb-5">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <b>{{yearcalc}} Years</b> 
+                            </div>
+                            <div class="card-body">
+                                </h4>
+                                <p>Interest Rate: Yearly {{rate}}%</p>
+                                <p>Monthly Payment: {{mPayment}}</p>
+                                <p>Total Payment:   {{tPayment}}</p>
+                                <p>Total Interest:   {{tInterest}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            <div class="col-md-4">
+                  <div class="card card-block d-flex">
+                    <div class="card-body">
+                      <form action="/Contact/mail" method="POST" class="text-center needs-validation" style="width: 100%; max-width: 300px" novalidate="">
+                        <label class="form-label" for="custom-validation-email" style="margin-left: 0px;">Email address:</label>
+                        <input type="email" name="email" class="form-control">
+                        <button class="btn btn-primary btn-block mb-4">Send</button>
+                      </form>
+                  </div>
+                </div>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- Accordion card -->
+  </div>
+  <!-- Accordion wrapper -->
     </div>
 </div>

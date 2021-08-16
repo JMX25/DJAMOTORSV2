@@ -7,8 +7,8 @@ vehicleController.renderVehicleForm = (req, res) => {
 };
 
 vehicleController.createNewVehicle = async (req, res) => {
-    const {brand,model,color,price,description,url} = req.body;
-    const newVehicle = new Vehicle({brand, model, color, price,description,url});
+    const {brand,model,color,price,description,url,vcc,capacity} = req.body;
+    const newVehicle = new Vehicle({brand, model, color, price,description,url,vcc,capacity});
     await newVehicle.save();
     req.flash('success_msg','Vehicle Added Succesfully!');
     res.redirect('/vehicles');
@@ -25,8 +25,33 @@ vehicleController.renderCatalogue = async (req, res) => {
 };
 
 vehicleController.renderMore = async (req,res) => {
+    const years = [1,5,10];
+    const rates = [0.20,0.15,0.08];
+    const results =[];
     const vehicle = await Vehicle.findById(req.params.id);
-    res.render('vehicles/more',{vehicle});
+
+    const Sprice = (vehicle.price).replaceAll(',','');
+    const numPrice = Sprice.substring(1);
+
+    const amount = parseInt(numPrice);
+
+    for(let i = 0; i<years.length; i++){
+        const yearcalc = years[i];
+        const calculatedPayment =  yearcalc * 12;
+        
+        const ratecalc = rates[i]/12;
+
+        const x = Math.pow(1 + ratecalc, calculatedPayment);
+        const monthly = (amount * x * ratecalc)/(x-1);
+        
+        const mPayment = monthly.toFixed(2);
+        const tPayment = (monthly * calculatedPayment).toFixed(2);
+        const tInterest = ((monthly * calculatedPayment) - amount).toFixed(2);
+        const rate = rates[i]*100;
+        results.push({mPayment,tPayment,tInterest,yearcalc,rate})
+    }
+    
+    res.render('vehicles/more',{vehicle,results});
 }
 
 vehicleController.renderEditForm = async (req, res) => {
@@ -35,8 +60,8 @@ vehicleController.renderEditForm = async (req, res) => {
 };
 
 vehicleController.updateVehicle = async (req, res) => {
-    const {brand,model,color,price,description,url} = req.body;
-    await Vehicle.findByIdAndUpdate(req.params.id, {brand, model, color, price,description,url});
+    const {brand,model,color,price,description,url,vcc,capacity} = req.body;
+    await Vehicle.findByIdAndUpdate(req.params.id, {brand, model, color, price,description,url,vcc,capacity});
     req.flash('success_msg','Vehicle Updated Succesfully!');
     res.redirect('/vehicles');
 };
@@ -46,5 +71,6 @@ vehicleController.deleteVehicle = async (req, res) => {
     req.flash('success_msg','Vehicle Deleted Succesfully!');
     res.redirect('/vehicles');
 };
+
 
 module.exports = vehicleController;

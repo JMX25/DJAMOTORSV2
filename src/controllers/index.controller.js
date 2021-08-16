@@ -7,7 +7,6 @@ const transporter = nodemailer.createTransport({
         pass: 'ulacit123'
     }
 });
-
 indexController.renderIndex = (req, res) => {
     res.render('index');
 };
@@ -21,15 +20,13 @@ indexController.renderContact = (req,res) =>{
 }
 
 indexController.send = (req,res)=>{
-    const {name,email,subject,body} = req.body;
-
+    const {email} = req.body;
     const options = {
         from: 'testulacit@gmail.com',
         to: email,
-        subject: subject,
-        text: body
+        subject: "Payment Plan Info",
+        text: "This is a placeholder email for a Payment Plan Info Request\nThank you for shopping at DJA Motors!.",
     }
-
     transporter.sendMail(options, function(error,info){
         if(error){
             req.flash('error_msg','Something went wrong.')
@@ -38,7 +35,7 @@ indexController.send = (req,res)=>{
             console.log("Sent:"+info.response)
             req.flash('success_msg','The Email has been sent.')
         }
-    res.redirect('/Contact');
+    res.redirect('/catalogue');
 });
 }
 

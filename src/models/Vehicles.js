@@ -24,6 +24,14 @@ const VehicleSchema = new Schema({
     url:{
         type: String,
         required: true
+    },
+    vcc:{
+        type:String,
+        required:true
+    },
+    capacity:{
+        type:String,
+        required: true
     }
 }, {
     timestamps: true
